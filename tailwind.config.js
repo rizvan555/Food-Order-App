@@ -10,11 +10,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontSize: {
-        sm: ["14px", "20px"],
-        base: ["16px", "24px"],
-        lg: ["20px", "28px"],
-        xl: ["24px", "32px"],
+      container: {
+        screens: {
+          xs: "375px",
+          sm: "640px",
+          md: "768px",
+          lg: "1024px",
+          xl: "1170px",
+          xxl: "1170px",
+        },
       },
       colors: {
         primary: "#ffbe33",
@@ -22,6 +26,7 @@ module.exports = {
       },
       fontFamily: {
         dancing: ["Dancing Script", "cursive"],
+        openSans: ["Open Sans", "sans-serif"],
       },
     },
   },
