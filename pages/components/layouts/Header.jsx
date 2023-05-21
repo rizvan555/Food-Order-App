@@ -1,7 +1,11 @@
+import { useState } from "react";
 import Logo from "../resource/Logo";
 import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
+import Search from "../resource/Search";
 
 const Header = () => {
+  const [search, setSearch] = useState(false);
+
   return (
     <div className="h-[5.5rem] bg-secondary">
       <div className="flex justify-between items-center h-full container mx-auto text-white">
@@ -26,19 +30,20 @@ const Header = () => {
         </nav>
         <div className=" flex items-center gap-3">
           <a href="#">
-            <FaUserAlt />
+            <FaUserAlt className=" hover:text-primary" />
           </a>
           <a href="#">
-            <FaShoppingCart />
+            <FaShoppingCart className=" hover:text-primary" />
           </a>
-          <a href="#">
-            <FaSearch />
-          </a>
+          <button onClick={() => setSearch(true)}>
+            <FaSearch className=" hover:text-primary" />
+          </button>
           <a href="#">
             <button className=" btn-primary text-xs">Order Online</button>
           </a>
         </div>
       </div>
+      {search ? <Search setSearch={setSearch} /> : null}
     </div>
   );
 };
