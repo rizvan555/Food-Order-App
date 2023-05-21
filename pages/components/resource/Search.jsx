@@ -13,7 +13,7 @@ const Search = ({ setSearch }) => {
         }}
       >
         <div className="w-full h-full grid place-content-center ">
-          <div className=" relative z-50 w-[500px] h-[500px] bg-white border-2 p-5">
+          <div className=" relative z-50 md:w-[500px] w-[370px] bg-white border-2 p-10 rounded-2xl">
             <Title className=" text-[40px] text-center">Search</Title>
             <input
               type="text"
