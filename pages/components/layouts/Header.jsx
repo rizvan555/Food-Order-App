@@ -18,7 +18,7 @@ const Header = () => {
         </div>
         {hamburger ? (
           <nav className="md:static absolute top-0 left-0  md:w-auto md:h-auto w-full h-full md:text-white text-black md:bg-transparent bg-white md:flex hidden">
-            <ul className="flex font-openSans gap-4 md:flex-row flex-col items-center">
+            <ul className="flex font-openSans gap-10 md:flex-row flex-col items-center">
               <li className="px-[5px] py-[20px] uppercase hover:text-primary">
                 <a href="">Home</a>
               </li>
