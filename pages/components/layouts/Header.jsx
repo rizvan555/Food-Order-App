@@ -3,15 +3,20 @@ import Logo from "../resource/Logo";
 import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { GiCancel } from "react-icons/gi";
-
 import Search from "../resource/Search";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [search, setSearch] = useState(false);
   const [hamburger, setHamburger] = useState(true);
+  const router = useRouter();
 
   return (
-    <div className="h-[5.5rem] bg-secondary">
+    <div
+      className={`h-[5.5rem] z-40 relative ${
+        router.asPath === "/" ? "bg-transparent" : "bg-secondary"
+      }`}
+    >
       <div className="flex justify-between items-center h-full container mx-auto text-white">
         <div>
           <Logo />
@@ -44,7 +49,7 @@ const Header = () => {
             )}
           </nav>
         ) : (
-          <nav className="md:static absolute top-0 left-0  md:w-auto md:h-auto w-full h-full md:text-white text-black md:bg-transparent bg-white grid place-content-center">
+          <nav className="md:static absolute top-0 left-0  md:w-auto md:h-auto w-full h-screen md:text-white text-black md:bg-transparent bg-white grid place-content-center">
             <ul className="flex font-openSans gap-4 md:flex-row flex-col items-center">
               <li className="px-[5px] py-[20px] uppercase hover:text-primary">
                 <a href="">Home</a>
@@ -60,7 +65,7 @@ const Header = () => {
               </li>
             </ul>
             {hamburger ? (
-             ""
+              ""
             ) : (
               <button
                 className="absolute top-10 right-10 "
