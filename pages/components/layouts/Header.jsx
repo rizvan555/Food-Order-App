@@ -23,7 +23,7 @@ const Header = () => {
         </div>
         {hamburger ? (
           <nav className="md:static absolute top-0 left-0  md:w-auto md:h-auto w-full h-full md:text-white text-black md:bg-transparent bg-white md:flex hidden">
-            <ul className="flex font-openSans gap-10 md:flex-row flex-col items-center">
+            <ul className="flex font-openSans gap-10 md:flex-row flex-col items-center ml-72">
               <li className="px-[5px] py-[20px] uppercase hover:text-primary">
                 <a href="">Home</a>
               </li>
@@ -77,7 +77,7 @@ const Header = () => {
           </nav>
         )}
 
-        <div className=" flex items-center gap-3">
+        <div className=" flex items-center gap-4">
           <a href="#">
             <FaUserAlt className=" hover:text-primary" />
           </a>
