@@ -1,3 +1,4 @@
+import { reservationSchema } from "@/schema/reservation";
 import Input from "./forms/Input";
 import Title from "./resource/Title";
 import { useFormik } from "formik";
@@ -13,7 +14,6 @@ const Reservation = () => {
         persons: "",
         fullDate: "",
       },
-      onSubmit,
     });
   };
 
@@ -25,9 +25,10 @@ const Reservation = () => {
       persons: "",
       fullDate: "",
     },
+    validationSchema: reservationSchema,
     onSubmit,
   });
-  console.log(formik.values);
+
   const inputs = [
     {
       id: 1,
@@ -36,6 +37,9 @@ const Reservation = () => {
       placeholder: "Your Full Name",
       value: formik.values.fullName,
       onChange: formik.handleChange,
+      errorsMessage: formik.errors.fullName,
+      touched: formik.touched.fullName,
+      onBlur: formik.handleBlur,
     },
     {
       id: 2,
@@ -44,6 +48,9 @@ const Reservation = () => {
       placeholder: "Your Phone Name",
       value: formik.values.phoneNumber,
       onChange: formik.handleChange,
+      errorsMessage: formik.errors.phoneNumber,
+      touched: formik.touched.phoneNumber,
+      onBlur: formik.handleBlur,
     },
     {
       id: 3,
@@ -52,6 +59,9 @@ const Reservation = () => {
       placeholder: "Your Email Address",
       value: formik.values.fullEmail,
       onChange: formik.handleChange,
+      errorsMessage: formik.errors.fullEmail,
+      touched: formik.touched.fullEmail,
+      onBlur: formik.handleBlur,
     },
     {
       id: 4,
@@ -60,6 +70,9 @@ const Reservation = () => {
       placeholder: "How many persons",
       value: formik.values.persons,
       onChange: formik.handleChange,
+      errorsMessage: formik.errors.persons,
+      touched: formik.touched.persons,
+      onBlur: formik.handleBlur,
     },
     {
       id: 5,
@@ -68,6 +81,9 @@ const Reservation = () => {
       placeholder: "Your Date",
       value: formik.values.fullDate,
       onChange: formik.handleChange,
+      errorsMessage: formik.errors.fullDate,
+      touched: formik.touched.fullDate,
+      onBlur: formik.handleBlur,
     },
   ];
   return (
@@ -82,6 +98,7 @@ const Reservation = () => {
                   key={input.id}
                   {...input}
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
               );
             })}

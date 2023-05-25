@@ -1,4 +1,16 @@
-const Input = ({ id, name, type, placeholder, onChange, value, actions }) => {
+const Input = ({
+  id,
+  name,
+  type,
+  placeholder,
+  onChange,
+  value,
+  actions,
+  errorsMessage,
+  touched,
+  handleBlur,
+}) => {
+  console.log(errorsMessage);
   return (
     <div>
       <div className="w-full">
@@ -10,8 +22,11 @@ const Input = ({ id, name, type, placeholder, onChange, value, actions }) => {
             onChange={onChange}
             value={value}
             actions={actions}
-            className={`h-14 w-full border border-primary outline-none px-4 peer cursor-text pt-2 ${
+            onBlur={handleBlur}
+            touched={touched}
+            className={`h-14 w-full border outline-none px-4 peer cursor-text pt-2 ${
               type === "datetime-local" ? "pt-0" : ""
+            } ${errorsMessage ? "border-red-500" : "border-primary"} 
             }`}
             required
           />
@@ -22,6 +37,7 @@ const Input = ({ id, name, type, placeholder, onChange, value, actions }) => {
               {placeholder}
             </span>
           )}
+          {errorsMessage && <span className=" text-red-500">{errorsMessage}</span>}
         </label>
       </div>
     </div>
