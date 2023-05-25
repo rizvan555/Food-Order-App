@@ -3,6 +3,20 @@ import Title from "./resource/Title";
 import { useFormik } from "formik";
 
 const Reservation = () => {
+  const onSubmit = async (values, actions) => {
+    await new Promise((resolve) => setTimeout(resolve, 4000));
+    actions.resetForm({
+      initialValues: {
+        fullName: "",
+        phoneNumber: "",
+        fullEmail: "",
+        persons: "",
+        fullDate: "",
+      },
+      onSubmit,
+    });
+  };
+
   const formik = useFormik({
     initialValues: {
       fullName: "",
@@ -11,9 +25,7 @@ const Reservation = () => {
       persons: "",
       fullDate: "",
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+    onSubmit,
   });
   console.log(formik.values);
   const inputs = [
@@ -58,7 +70,6 @@ const Reservation = () => {
       onChange: formik.handleChange,
     },
   ];
-
   return (
     <div className="container mx-auto py-12">
       <Title className=" text-[40px] mb-10">Book A Table</Title>
@@ -75,7 +86,9 @@ const Reservation = () => {
               );
             })}
           </div>
-          <button className="btn-primary mt-4">Book Now</button>
+          <button type="submit" className="btn-primary mt-4">
+            Book Now
+          </button>
         </form>
         <div className="lg:flex-1 ">
           <iframe
