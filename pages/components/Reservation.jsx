@@ -7,13 +7,13 @@ const Reservation = () => {
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm({
-      initialValues: {
-        fullName: "",
-        phoneNumber: "",
-        fullEmail: "",
-        persons: "",
-        fullDate: "",
-      },
+      // initialValues: {
+      //   fullName: "",
+      //   phoneNumber: "",
+      //   fullEmail: "",
+      //   persons: "",
+      //   fullDate: "",
+      // },
     });
   };
 
@@ -96,7 +96,7 @@ const Reservation = () => {
               return (
                 <Input
                   key={input.id}
-                  {...input}
+                  {...input}a
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />

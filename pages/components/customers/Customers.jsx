@@ -48,7 +48,7 @@ const Customers = () => {
     ],
   };
   return (
-    <div className="container mx-auto my-20">
+    <div className="container mx-auto mt-12 mb-20">
       <Title className=" text-[40px] text-center">What Says Our Customer</Title>
       <Slider {...settings}>
         <CustomersItem imgSrc={client2} />

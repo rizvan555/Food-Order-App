@@ -5,6 +5,7 @@ import MenuWrapper from "../components/products/MenuWrapper";
 import Campaigns from "../components/resource/Campaigns";
 import Carousel from "../components/resource/carousel";
 import Customers from "../components/customers/Customers";
+import Footer from "../components/layouts/Footer";
 
 const Index = () => {
   return (
