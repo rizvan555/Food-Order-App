@@ -82,9 +82,9 @@ const Header = () => {
           <Link href="/auth/login">
             <FaUserAlt className=" hover:text-primary" />
           </Link>
-          <a href="#">
+          <Link href="/cart">
             <FaShoppingCart className=" hover:text-primary" />
-          </a>
+          </Link>
           <button onClick={() => setSearch(true)}>
             <FaSearch className=" hover:text-primary" />
           </button>
