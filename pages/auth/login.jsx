@@ -30,7 +30,6 @@ function Login() {
       value: formik.values.fullEmail,
       onChange: formik.handleChange,
       errorsMessage: formik.errors.fullEmail,
-      touched: formik.touched.fullEmail,
       onBlur: formik.handleBlur,
     },
     {
@@ -41,13 +40,15 @@ function Login() {
       value: formik.values.password,
       onChange: formik.handleChange,
       errorsMessage: formik.errors.password,
-      touched: formik.touched.password,
       onBlur: formik.handleBlur,
     },
   ];
   return (
     <div className="container mx-auto">
-      <div className="flex flex-col items-center my-20 md:w-1/2 mx-auto w-full">
+      <form
+        className="flex flex-col items-center my-20 md:w-1/2 mx-auto w-full"
+        onSubmit={formik.handleSubmit}
+      >
         <Title className="text-[40px] mb-6">Login</Title>
         <div className=" flex flex-col gap-y-4 w-full">
           {inputs.map((input) => {
@@ -75,7 +76,7 @@ function Login() {
             </span>
           </Link>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
