@@ -5,6 +5,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { GiCancel } from "react-icons/gi";
 import Search from "../resource/Search";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Header = () => {
   const [search, setSearch] = useState(false);
@@ -25,16 +26,16 @@ const Header = () => {
           <nav className="md:static absolute top-0 left-0  md:w-auto md:h-auto w-full h-full md:text-white text-black md:bg-transparent bg-white md:flex hidden">
             <ul className="flex font-openSans gap-10 md:flex-row flex-col items-center ml-96">
               <li className="px-[5px] py-[20px] uppercase hover:text-primary">
-                <a href="">Home</a>
+                <Link href="/">Home</Link>
               </li>
               <li className="px-[5px] py-[20px] uppercase hover:text-primary">
-                <a href="">Menu</a>
+                <Link href="/menu">Menu</Link>
               </li>
               <li className="px-[5px] py-[20px] uppercase hover:text-primary">
-                <a href="">About</a>
+                <Link href="/about">About</Link>
               </li>
               <li className="px-[5px] py-[20px] uppercase hover:text-primary">
-                <a href="">Book Table</a>
+                <Link href="/reservation">Book Table</Link>
               </li>
             </ul>
             {hamburger ? (
@@ -78,9 +79,9 @@ const Header = () => {
         )}
 
         <div className=" flex items-center gap-4 ml-10">
-          <a href="#">
+          <Link href="/auth/login">
             <FaUserAlt className=" hover:text-primary" />
-          </a>
+          </Link>
           <a href="#">
             <FaShoppingCart className=" hover:text-primary" />
           </a>

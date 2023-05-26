@@ -96,7 +96,7 @@ const Reservation = () => {
               return (
                 <Input
                   key={input.id}
-                  {...input}a
+                  {...input}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
