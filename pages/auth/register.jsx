@@ -2,11 +2,11 @@ import React from "react";
 import Title from "../components/resource/Title";
 import Input from "../components/forms/Input";
 import { useFormik } from "formik";
-import { loginSchema } from "@/schema/login";
+import { registerSchema } from "@/schema/register";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 
-function Login() {
+function Register() {
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm({});
@@ -14,16 +14,28 @@ function Login() {
 
   const formik = useFormik({
     initialValues: {
+      fullName: "",
       fullEmail: "",
       password: "",
+      confirmPassword: "",
     },
-    validationSchema: loginSchema,
+    validationSchema: registerSchema,
     onSubmit,
   });
 
   const inputs = [
     {
       id: 1,
+      name: "fullName",
+      type: "text",
+      placeholder: "Your Full Name",
+      value: formik.values.fullName,
+      onChange: formik.handleChange,
+      errorsMessage: formik.errors.fullName,
+      onBlur: formik.handleBlur,
+    },
+    {
+      id: 2,
       name: "fullEmail",
       type: "email",
       placeholder: "Your Email Address",
@@ -33,13 +45,23 @@ function Login() {
       onBlur: formik.handleBlur,
     },
     {
-      id: 2,
+      id: 3,
       name: "password",
       type: "password",
       placeholder: "Your Password",
       value: formik.values.password,
       onChange: formik.handleChange,
       errorsMessage: formik.errors.password,
+      onBlur: formik.handleBlur,
+    },
+    {
+      id: 4,
+      name: "confirmPassword",
+      type: "password",
+      placeholder: "Your Confirm Password",
+      value: formik.values.confirmPassword,
+      onChange: formik.handleChange,
+      errorsMessage: formik.errors.confirmPassword,
       onBlur: formik.handleBlur,
     },
   ];
@@ -49,7 +71,7 @@ function Login() {
         className="flex flex-col items-center my-20 md:w-1/2 mx-auto w-full"
         onSubmit={formik.handleSubmit}
       >
-        <Title className="text-[40px] mb-6">Login</Title>
+        <Title className="text-[40px] mb-6">Register</Title>
         <div className=" flex flex-col gap-y-6 w-full">
           {inputs.map((input) => {
             return (
@@ -64,15 +86,11 @@ function Login() {
         </div>
         <div className="flex flex-col gap-y-3 mt-8 w-full ">
           <button className="btn-primary" type="submit">
-            LOGIN
+            REGISTER
           </button>
-          <button className="btn-primary !bg-secondary flex items-center justify-center mb-8 ">
-            <FaGithub />
-            GITHUB
-          </button>
-          <Link href="/auth/register">
+          <Link href="/auth/login">
             <span className="text-[20px] underline text-gray-600">
-              Do you no have a account?
+              Do you have a account?
             </span>
           </Link>
         </div>
@@ -81,4 +99,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
