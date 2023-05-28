@@ -10,12 +10,14 @@ function Categories() {
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5">
       <Title className="text-[40px]">Categories</Title>
       <div className="mt-5">
-        <div className="flex gap-4 flex-1 items-center w-full">
-          <Input
-            placeholder="Add a new Category"
-            onChange={(e) => setInputText(e.target.value)}
-            value={inputText}
-          />
+        <div className="flex gap-4 flex-1 items-center">
+          <div className="md:w-[60vw]">
+            <Input
+              placeholder="Add a new Category"
+              onChange={(e) => setInputText(e.target.value)}
+              value={inputText}
+            />
+          </div>
           <button
             className="btn-primary"
             onClick={() => {
