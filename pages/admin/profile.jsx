@@ -5,16 +5,15 @@ import { BiCategoryAlt, BiDockBottom } from "react-icons/bi";
 import { FaMotorcycle } from "react-icons/fa";
 import { ImExit } from "react-icons/im";
 import { useState } from "react";
-import Account from "../components/clientProfile/Account";
-import Password from "../components/clientProfile/Password";
-import Order from "../components/clientProfile/Order";
 import Products from "../components/admin/Products";
+import Order from "../components/admin/Order";
+import Categories from "../components/admin/Categories";
 
 function Profile() {
   const [tabs, setTabs] = useState(0);
 
   return (
-    <div className="flex px-10 min-h-[calc(100vh_-_433px)] lg:flex-row flex-col lg:mb-0 mb-10">
+    <div className="flex px-10 min-h-[calc(100vh_-_433px)] lg:flex-row flex-col lg:mb-10 mb-10">
       <div className="lg:w-80 1-100 flex-shrink-0">
         <div className="relative flex flex-col items-center px-10 py-5 border border-b-0">
           <Image
@@ -75,8 +74,8 @@ function Profile() {
         </ul>
       </div>
       {tabs === 0 ? <Products /> : ""}
-      {tabs === 1 ? <Password /> : ""}
-      {tabs === 2 ? <Order /> : ""}
+      {tabs === 1 ? <Order /> : ""}
+      {tabs === 2 ? <Categories /> : ""}
     </div>
   );
 }
