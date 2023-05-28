@@ -3,7 +3,6 @@ import Title from "../components/resource/Title";
 import Input from "../components/forms/Input";
 import { useFormik } from "formik";
 import { adminSchema } from "@/schema/admin";
-import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 
 function Login() {
