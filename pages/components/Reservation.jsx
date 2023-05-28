@@ -45,7 +45,7 @@ const Reservation = () => {
       id: 2,
       name: "phoneNumber",
       type: "number",
-      placeholder: "Your Phone Name",
+      placeholder: "Your Phone Number",
       value: formik.values.phoneNumber,
       onChange: formik.handleChange,
       errorsMessage: formik.errors.phoneNumber,
