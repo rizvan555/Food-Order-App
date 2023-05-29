@@ -1,14 +1,21 @@
 import Image from "next/image";
 import f3 from "../resource/Images/f3.png";
 import { MdShoppingCart } from "react-icons/md";
+import Link from "next/link";
 
 const MenuItem = () => {
   return (
     <div className=" bg-secondary rounded-3xl">
       <div className="w-full bg-[#f1f2f3] rounded-bl-[46px] rounded-tl-2xl rounded-tr-2xl">
-        <div className=" relative w-36 h-36 p-5 mx-auto ">
-          <Image src={f3} alt="" className=" hover:scale-105 transition-all" />
-        </div>
+        <Link href="/myProduct">
+          <div className=" relative w-36 h-36 p-5 mx-auto ">
+            <Image
+              src={f3}
+              alt=""
+              className=" hover:scale-105 transition-all"
+            />
+          </div>
+        </Link>
       </div>
       <div className=" text-white md:w-[30vw] sm:w-[20vw] w-[70vw] p-4">
         <h4 className=" font-bold mb-4">Delicious Pizza</h4>
