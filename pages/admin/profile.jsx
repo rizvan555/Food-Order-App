@@ -8,6 +8,7 @@ import { useState } from "react";
 import Products from "../components/admin/Products";
 import Order from "../components/admin/Order";
 import Categories from "../components/admin/Categories";
+import Footer from "../components/admin/Footer";
 
 function Profile() {
   const [tabs, setTabs] = useState(0);
@@ -76,6 +77,7 @@ function Profile() {
       {tabs === 0 ? <Products /> : ""}
       {tabs === 1 ? <Order /> : ""}
       {tabs === 2 ? <Categories /> : ""}
+      {tabs === 3 ? <Footer /> : ""}
     </div>
   );
 }
