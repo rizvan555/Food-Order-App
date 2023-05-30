@@ -6,11 +6,13 @@ import { GiCancel } from "react-icons/gi";
 import Search from "../resource/Search";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [search, setSearch] = useState(false);
   const [hamburger, setHamburger] = useState(true);
   const router = useRouter();
+  const cart = useSelector((state) => state.cart);
 
   return (
     <div
@@ -80,20 +82,27 @@ const Header = () => {
 
         <div className=" flex items-center gap-4 ml-10">
           <Link href="/auth/login">
-            <FaUserAlt className=" hover:text-primary" />
+            <span>
+              <FaUserAlt className=" hover:text-primary transition-all cursor-pointer" />
+            </span>
           </Link>
           <Link href="/cart">
-            <FaShoppingCart className=" hover:text-primary" />
+            <span className="relative">
+              <FaShoppingCart className=" hover:text-primary transition-all cursor-pointer" />
+              <span className="w-4 h-4 text-xs grid place-content-center bg-primary rounded-full absolute -top-2 -right-3 text-black font-bold">
+                {cart.products.length}
+              </span>
+            </span>
           </Link>
           <button onClick={() => setSearch(true)}>
-            <FaSearch className=" hover:text-primary" />
+            <FaSearch className=" hover:text-primary transition-all cursor-pointer" />
           </button>
           <a href="#" className=" md:inline-block hidden sm">
             <button className=" btn-primary text-xs">Order Online</button>
           </a>
           <button className=" md:hidden inline-block">
             <RxHamburgerMenu
-              className=" text-xl hover:text-primary"
+              className=" text-xl hover:text-primary transition-all cursor-pointer"
               onClick={() => setHamburger(!hamburger)}
             />
           </button>

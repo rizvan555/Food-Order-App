@@ -2,6 +2,8 @@ import Image from "next/image";
 import f1 from "../components/resource/Images/f1.png";
 import Title from "../components/resource/Title";
 import { useState } from "react";
+import { addProduct } from "@/redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const itemsExtra = [
   {
@@ -27,6 +29,25 @@ const Index = () => {
   const [size, setSize] = useState(0);
   const [extraItems, setExtraItems] = useState(itemsExtra);
   const [extras, setExtras] = useState([]);
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const foodItems = [
+    {
+      id: 1,
+      name: "Pizza Margarita",
+      price: 10,
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, non? Beatae voluptatem culpa accusantium ea odio officia, autem atque corrupti quod ullam, iure dolores facilis voluptas inventore, ex deleniti ratione.",
+      extraOptions: [
+        {
+          id: 1,
+          name: "Extra-1",
+          price: 1,
+        },
+      ],
+    },
+  ];
 
   const handleSize = (sizeIndex) => {
     //Sirasina gore mehsulun qiymetini secirsen ve ondan 0-i cixirsan. Aldigin netice necedirse sene o siradaki malin qiymetini cixarir.
@@ -48,6 +69,10 @@ const Index = () => {
       changePrice(-item.price);
       setExtras(extras.filter((extra) => extra.id !== item.id));
     }
+  };
+
+  const handleClick = (e) => {
+    dispatch(addProduct({ ...foodItems[0], extras, price, quantity: 1 }));
   };
 
   return (
@@ -110,7 +135,10 @@ const Index = () => {
             </label>
           ))}
         </div>
-        <button className="flex btn-primary my-6 w-40 md:mx-0 mx-auto">
+        <button
+          className="flex btn-primary my-6 w-40 md:mx-0 mx-auto"
+          onClick={handleClick}
+        >
           Add To Card
         </button>
       </div>
