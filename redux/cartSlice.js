@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";  //icliyi-daxili qurmaq ücündür
+import { createSlice } from "@reduxjs/toolkit"; //icliyi-daxili qurmaq ücündür
 
 const cartSlice = createSlice({
   name: "cart",
@@ -11,10 +11,15 @@ const cartSlice = createSlice({
     addProduct: (state, action) => {
       state.products.push(action.payload);
       state.quantity += action.payload.quantity;
-      state.totalPrice += action.payload.totalPrice;
+      state.totalPrice += action.payload.price;
+    },
+    reset: (state, action) => {
+      state.products = [];
+      state.quantity = 0;
+      state.totalPrice = 0;
     },
   },
 });
 
-export const { addProduct } = cartSlice.actions;
+export const { addProduct, reset } = cartSlice.actions;
 export default cartSlice.reducer;
