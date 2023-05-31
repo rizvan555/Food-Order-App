@@ -1,16 +1,16 @@
 import Image from "next/image";
-import f3 from "../resource/Images/f3.png";
 import { MdShoppingCart } from "react-icons/md";
 import Link from "next/link";
 
-const MenuItem = () => {
+
+const MenuItem = ({ imageSrc }) => {
   return (
     <div className=" bg-secondary rounded-3xl">
       <div className="w-full bg-[#f1f2f3] rounded-bl-[46px] rounded-tl-2xl rounded-tr-2xl">
         <Link href="/myProduct">
-          <div className=" relative w-36 h-36 p-5 mx-auto ">
+          <div className=" relative w-40 h-40 p-4 mx-auto ">
             <Image
-              src={f3}
+              src={imageSrc}
               alt=""
               className=" hover:scale-105 transition-all"
             />
