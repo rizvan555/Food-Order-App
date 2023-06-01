@@ -22,7 +22,7 @@ const MenuWrapper = () => {
         </div>
       </div>
       <div className="mt-8 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
-        <MenuItem imageSrc={f1} />
+        <MenuItem imageSrc={f1}/>
         <MenuItem imageSrc={f2} />
         <MenuItem imageSrc={f3} />
         <MenuItem imageSrc={f4} />

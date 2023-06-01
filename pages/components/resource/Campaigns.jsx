@@ -10,6 +10,7 @@ const CampaignItems = () => {
         <Image
           src={o1}
           className=" w-32 h-32 rounded-full hover:scale-105 transition-all"
+          alt="o1"
         />
       </div>
       <div className=" flex flex-col text-white">

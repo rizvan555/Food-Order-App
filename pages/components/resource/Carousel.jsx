@@ -17,7 +17,7 @@ const Carousel = () => {
   return (
     <section className="  w-full h-screen container -mt-[88px]">
       <div className=" absolute h-full w-full">
-        <Image src={heroBg} className="w-full h-full" />
+        <Image src={heroBg} className="w-full h-full" alt="heroBg" />
       </div>
       <Slider {...settings}>
         <div>

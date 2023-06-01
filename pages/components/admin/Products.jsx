@@ -31,7 +31,7 @@ function Products() {
           <tbody>
             <tr className="transition-all bg-secondary border-gray-700 hover:bg-primary">
               <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
-                <Image src={f1} alt="" width={50} height={50} />
+                <Image src={f1} alt="f1" width={50} height={50} />
               </td>
               <td>
                 <span>630049e92...</span>

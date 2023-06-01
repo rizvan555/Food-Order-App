@@ -23,28 +23,28 @@ const Search = ({ setSearch }) => {
             <ul>
               <li className=" flex items-center justify-between hover:bg-primary px-2 py-1 transition-all">
                 <div className=" relative flex">
-                  <Image src={f1} alt="f1.png" width={48} height={48} />
+                  <Image src={f1} alt="image1" width={48} height={48} />
                 </div>
                 <span className=" font-bold">Good Pizza</span>
                 <p className=" font-bold">$10</p>
               </li>
               <li className=" flex items-center justify-between hover:bg-primary px-2 py-1 transition-all">
                 <div className=" relative flex">
-                  <Image src={f1} alt="f1.png" width={48} height={48} />
+                  <Image src={f1} alt="image2" width={48} height={48} />
                 </div>
                 <span className=" font-bold">Good Pizza</span>
                 <p className=" font-bold">$12</p>
               </li>
               <li className=" flex items-center justify-between hover:bg-primary px-2 py-1 transition-all">
                 <div className=" relative flex">
-                  <Image src={f1} alt="f1.png" width={48} height={48} />
+                  <Image src={f1} alt="image3" width={48} height={48} />
                 </div>
                 <span className=" font-bold">Can Burger</span>
                 <p className=" font-bold">$15</p>
               </li>
               <li className=" flex items-center justify-between hover:bg-primary px-2 py-1 transition-all">
                 <div className=" relative flex">
-                  <Image src={f1} alt="f1.png" width={48} height={48} />
+                  <Image src={f1} alt="image4" width={48} height={48} />
                 </div>
                 <span className=" font-bold">Good Pizza</span>
                 <p className=" font-bold">$20</p>

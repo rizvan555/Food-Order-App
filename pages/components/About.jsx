@@ -8,7 +8,7 @@ const About = () => {
       <div className="flex items-center sm:flex-auto text-white container mx-auto sm:gap-16 gap-20 flex-wrap justify-center">
         <div>
           <div className=" sm:w-[445px] w-[300px] sm:h-[600px] h-[400px]">
-            <Image src={aboutImg} />
+            <Image src={aboutImg} alt="aboutImg" />
           </div>
         </div>
         <div className=" md:w-1/2">

@@ -2,7 +2,6 @@ import Image from "next/image";
 import { MdShoppingCart } from "react-icons/md";
 import Link from "next/link";
 
-
 const MenuItem = ({ imageSrc }) => {
   return (
     <div className=" bg-secondary rounded-3xl">
@@ -11,7 +10,7 @@ const MenuItem = ({ imageSrc }) => {
           <div className=" relative w-40 h-40 p-4 mx-auto ">
             <Image
               src={imageSrc}
-              alt=""
+              alt="imageSrc"
               className=" hover:scale-105 transition-all"
             />
           </div>

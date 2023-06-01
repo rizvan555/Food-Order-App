@@ -5,8 +5,11 @@ import { useFormik } from "formik";
 import { loginSchema } from "@/schema/login";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import { useSession, signIn } from "next-auth/react";
 
 function Login() {
+  const { data: session } = useSession();
+  console.log(session); //heqiqeten de giris edib etmediyini yoxlayir ve giris ederken sene daxil olan shexsin butun melumatlarini oturur.
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm({});
@@ -66,7 +69,11 @@ function Login() {
           <button className="btn-primary" type="submit">
             LOGIN
           </button>
-          <button className="btn-primary !bg-secondary flex items-center justify-center mb-8 ">
+          <button
+            className="btn-primary !bg-secondary flex items-center justify-center mb-8 "
+            type="button"
+            onClick={() => signIn("github")}
+          >
             <FaGithub />
             GITHUB
           </button>
