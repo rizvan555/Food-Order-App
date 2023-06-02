@@ -3,13 +3,24 @@ import Title from "../components/resource/Title";
 import Input from "../components/forms/Input";
 import { useFormik } from "formik";
 import { registerSchema } from "@/schema/register";
-import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function Register() {
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
-    actions.resetForm({});
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/users/register`,
+        values
+      );
+      if (res.status === 200) {
+        toast.success("User created successfully");
+      }
+    } catch (err) {
+      toast.error("Something went wrong");
+      console.log(err);
+    }
   };
 
   const formik = useFormik({
