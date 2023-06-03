@@ -6,8 +6,10 @@ import { registerSchema } from "@/schema/register";
 import Link from "next/link";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 function Register() {
+  const { push } = useRouter();
   const onSubmit = async (values, actions) => {
     try {
       const res = await axios.post(
@@ -16,17 +18,19 @@ function Register() {
       );
       if (res.status === 200) {
         toast.success("User created successfully");
+        push("/auth/login");
       }
     } catch (err) {
       toast.error("Something went wrong");
       console.log(err);
     }
+    actions.resetForm();
   };
 
   const formik = useFormik({
     initialValues: {
       fullName: "",
-      fullEmail: "",
+      email: "",
       password: "",
       confirmPassword: "",
     },
@@ -43,16 +47,18 @@ function Register() {
       value: formik.values.fullName,
       onChange: formik.handleChange,
       errorsMessage: formik.errors.fullName,
+      touched: formik.touched.fullName,
       onBlur: formik.handleBlur,
     },
     {
       id: 2,
-      name: "fullEmail",
+      name: "email",
       type: "email",
       placeholder: "Your Email Address",
-      value: formik.values.fullEmail,
+      value: formik.values.email,
       onChange: formik.handleChange,
-      errorsMessage: formik.errors.fullEmail,
+      errorsMessage: formik.errors.email,
+      touched: formik.touched.email,
       onBlur: formik.handleBlur,
     },
     {
@@ -63,6 +69,7 @@ function Register() {
       value: formik.values.password,
       onChange: formik.handleChange,
       errorsMessage: formik.errors.password,
+      touched: formik.touched.password,
       onBlur: formik.handleBlur,
     },
     {
@@ -73,9 +80,11 @@ function Register() {
       value: formik.values.confirmPassword,
       onChange: formik.handleChange,
       errorsMessage: formik.errors.confirmPassword,
+      touched: formik.touched.confirmPassword,
       onBlur: formik.handleBlur,
     },
   ];
+
   return (
     <div className="container mx-auto">
       <form

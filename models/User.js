@@ -9,11 +9,9 @@ const UserSchema = new mongoose.Schema(
     },
     firstName: {
       type: String,
-      required: true,
     },
     lastName: {
       type: String,
-      required: true,
     },
     email: {
       type: String,
@@ -24,7 +22,6 @@ const UserSchema = new mongoose.Schema(
     },
     adress: {
       type: String,
-      required: true,
     },
     job: {
       type: String,

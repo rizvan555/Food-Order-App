@@ -7,8 +7,8 @@ function getCharacterValidationError(characterType) {
 export const registerSchema = Yup.object({
   fullName: Yup.string()
     .min(3, "Must be 3 characters or less")
-    .required("Full name is qequired"),
-  fullEmail: Yup.string()
+    .required("Full name is required"),
+  email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
   password: Yup.string()

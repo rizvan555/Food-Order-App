@@ -9,10 +9,13 @@ import { useSession, signIn } from "next-auth/react";
 
 function Login() {
   const { data: session } = useSession();
-  console.log(session); //heqiqeten de giris edib etmediyini yoxlayir ve giris ederken sene daxil olan shexsin butun melumatlarini oturur.
+  // console.log(session); //heqiqeten de giris edib etmediyini yoxlayir ve giris ederken sene daxil olan shexsin butun melumatlarini oturur.
+
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
-    actions.resetForm({});
+    const { email, password } = values;
+    let options = { redirect: false, email, password };
+    const res = await signIn("credentials", options);
+    // actions.resetForm();
   };
 
   const formik = useFormik({
@@ -27,13 +30,14 @@ function Login() {
   const inputs = [
     {
       id: 1,
-      name: "fullEmail",
+      name: "email",
       type: "email",
       placeholder: "Your Email Address",
-      value: formik.values.fullEmail,
+      value: formik.values.email,
       onChange: formik.handleChange,
-      errorsMessage: formik.errors.fullEmail,
+      errorsMessage: formik.errors.email,
       onBlur: formik.handleBlur,
+      touched: formik.touched.email,
     },
     {
       id: 2,
@@ -44,6 +48,7 @@ function Login() {
       onChange: formik.handleChange,
       errorsMessage: formik.errors.password,
       onBlur: formik.handleBlur,
+      touched: formik.touched.password,
     },
   ];
   return (
